@@ -32,11 +32,11 @@ npm install mocha-espresso
 
 Git updates disabled
 ```shell
-    run_all <mocha_test_folder> [-r <rerun_times>] [-m "<mocha_args ...>"]
+    mocha-espresso <mocha_test_folder> [-r <rerun_times>] [-m "<mocha_args ...>"]
 ```
 Git updates enabled
 ```shell
-    run_all <mocha_test_folder> -P <pr_number> [-m "<mocha_args ...>"]
+    mocha-espresso <mocha_test_folder> -P <pr_number> [-m "<mocha_args ...>"]
 ```
 
 Where <mocha_test_folder> is your base directory for your tests, 

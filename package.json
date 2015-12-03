@@ -2,8 +2,25 @@
   "name": "mocha-espresso",
   "version": "0.0.4",
   "description": "Run mocha tests in parallel",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dankle/mocha-espresso"
+  },
+  "bin": {
+    "mocha-espresso": "bin/mocha-espresso.bin.js"
+  },
   "scripts": {
     "test": "node lib/mocha-espresso.js $PR"
+  },
+  "keywords": [
+    "testing",
+    "mocha",
+    "parallel",
+    "espresso",
+    "mocha-espresso"
+  ],
+  "engines": {
+  "node": ">=0.10.21"
   },
   "dependencies": {
     "commander": "^2.9.0",
