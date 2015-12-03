@@ -1,8 +1,6 @@
 # mocha-espresso 
 
-Mocha-espresso is a tool that allows you to execute mocha test suites in parallel.
-
-The main purpose of this module is to increase execution speed of large mocha test suites.
+Mocha-espresso is a tool that allows you to execute mocha test suites in parallel. The main purpose of this module is to increase execution speed of mocha test suites.
 
 ## How does it work?
 
@@ -77,7 +75,7 @@ For information on how to generate a access token for git:
   -t, --token <token>              Token for github comment
   -d, --debug                      Use debug output to the console
   -m, --mocha <"mocha_args ...">   Mocha args
-``
+```
 
 For convenience these options can be added to a config file to save the settings:
 
