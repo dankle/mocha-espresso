@@ -7,10 +7,11 @@
     "url": "https://github.com/dankle/mocha-espresso"
   },
   "bin": {
-    "mocha-espresso": "bin/mocha-espresso.bin.js"
+    "mocha-espresso": "./node_modules/.bin/mocha-espresso"
   },
   "scripts": {
-    "test": "node lib/mocha-espresso.js $PR"
+    "test": "node lib/mocha-espresso.js $PR",
+    "install": "export PATH='$PATH:./node_modules/.bin'"
   },
   "keywords": [
     "testing",
