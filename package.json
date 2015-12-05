@@ -44,5 +44,9 @@
     "grunt-env": "~0.4.4",
     "grunt-jscs": "^2.3.0",
     "grunt-mocha-cli": "^2.0.0"
+  },
+  "license" : {
+    "type" : "MIT",
+    "url" : "http://opensource.org/licenses/MIT"
   }
 }
