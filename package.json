@@ -6,6 +6,7 @@
     "type": "git",
     "url": "https://github.com/dankle/mocha-espresso"
   },
+  "license": "MIT",
   "bin": {
     "mocha-espresso": "./bin/mocha-espresso.bin.js"
   },
@@ -24,29 +25,23 @@
   "node": ">=0.10.21"
   },
   "dependencies": {
-    "commander": "^2.9.0",
-    "config": "~1.16.0",
-    "dateformat": "^1.0.11",
-    "github": "^0.2.4",
-    "grunt-cli": "0.1.13",
-    "libxmljs": "^0.14.2",
+    "commander": "2.9.0",
+    "dateformat": "1.0.11",
+    "github": "0.2.4",
+    "xml2js": "0.4.15",
     "mocha": "2.3.3",
-    "mocha-multi": "^0.7.2",
-    "path": "^0.12.7",
-    "progress": "^1.1.8",
-    "rekuire": "^0.1.9",
+    "mocha-multi": "0.7.2",
+    "path": "0.12.7",
+    "progress": "1.1.8",
+    "rekuire": "0.1.9",
     "stringbuilder": "0.0.11"
   },
   "devDependencies": {
-    "grunt": "~0.4.5",
-    "grunt-concurrent": "^2.0.3",
-    "grunt-contrib-jshint": "~0.11.3",
-    "grunt-env": "~0.4.4",
-    "grunt-jscs": "^2.3.0",
-    "grunt-mocha-cli": "^2.0.0"
-  },
-  "license" : {
-    "type" : "MIT",
-    "url" : "http://opensource.org/licenses/MIT"
+    "grunt": "0.4.5",
+    "grunt-concurrent": "2.0.3",
+    "grunt-contrib-jshint": "0.11.3",
+    "grunt-env": "0.4.4",
+    "grunt-jscs": "2.3.0",
+    "grunt-mocha-cli": "2.0.0"
   }
 }

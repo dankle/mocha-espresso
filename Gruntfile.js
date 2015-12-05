@@ -10,7 +10,7 @@ module.exports = function(grunt) {
         expr: true,
         loopfunc: true,
         quotmark: 'single',
-        node: true,
+        node: true
       },
       files: [
         '*.js',
