@@ -52,7 +52,7 @@ with the option ```-m <mocha_args ...>```, which will get forwarded to mocha.
 All reports will be generated to ```./test/reports/``` by default. This is only configurable when using the mocha-espresso config file.
 
 ##### Using config file
-All options will be parsed from ```./config/mocha-espresso.json```, more information on config file [here](#configfile).
+All options will be parsed from ```./config/mocha-espresso.json```, more information on config file section.
 
 Pull request updates in git disabled
 ```shell
@@ -73,7 +73,7 @@ mocha-espresso -P <prnumber>
   -r, --rerun <rerun_times>        Rerun times (default 2)
   -P, --prnumber <pr_number>       PR number for github comment
   -h, --host <host>                Host for github comment
-  -repo, --repo <repo>             Repo for github comment
+  -R, --repo <repo>                Repo for github comment
   -u, --user <user>                User for github comment
   -t, --token <token>              Token for github comment
   -d, --debug                      Use debug output to the console
@@ -86,7 +86,7 @@ When using the option ```-P``` or ```--prnumber```, github updates will be enabl
 
 ```shell
   -h, --host <host>                Host for github comment
-  -repo, --repo <repo>             Repo for github comment
+  -R, --repo <repo>                Repo for github comment
   -u, --user <user>                User for github comment
   -t, --token <token>              Token for github comment
 ```
@@ -134,6 +134,7 @@ directory with all essential information.
 If pull request updates are activated a comment will be added to the Pull Request you provided as ```<pr_number>``` with a summary from the testrun. 
 * If all tests passed the latest commit will be marked as PASSED.
 * If any test fails the latest commit will be marked as FAILED.
+
 
 ---
 
