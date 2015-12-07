@@ -23,14 +23,15 @@ When all tests are done one summarized report will be created.
 
 ## Installation ##
 
+```shell
 $ npm install mocha-espresso -g
-
+```
 
 ---
 ## Example ##
-
+```shell
 $ mocha-espresso ./test/foo/bar -r 2 -d -m "-g @smoke"
-
+```
 
 ---
 
@@ -38,13 +39,14 @@ $ mocha-espresso ./test/foo/bar -r 2 -d -m "-g @smoke"
 ##### Using command line options
 
 Pull request updates in git disabled
-
+```shell
 $ mocha-espresso <mocha_test_folder> [-r <rerun_times>] [-m "<mocha_args ...>"]
+```
 
 Pull request updates in git enabled
-
+```shell
 $ mocha-espresso <mocha_test_folder> -P <pr_number> [-m "<mocha_args ...>"]
-
+```
 
 By default Mocha-Espresso will also run all mocha testcases in the specified ```<mocha_test_folder>```. This is configurable 
 with the option ```-m <mocha_args ...>```, which will get forwarded to mocha.
@@ -55,13 +57,13 @@ All reports will be generated to ```./test/reports/``` by default. This is only 
 All options will be parsed from ```./config/mocha-espresso.json```, more information on config file section.
 
 Pull request updates in git disabled
-
+```shell
 $ mocha-espresso
-
+```
 Pull request updates in git enabled
-
+```shell
 $ mocha-espresso -P <prnumber>
-
+```
 
 ---
 
