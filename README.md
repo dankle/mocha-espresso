@@ -128,8 +128,8 @@ If you are initiating mocha-espresso manually when running the test suites it's 
 ---
 
 ## Results ##
-After running this module a final report **mocha_report_final.json** will be created under the **[reports](./test/reports)**
-directory with all essential information. 
+After running this module a final report **mocha_report_final.json** will by default be created under the ```./test/reports```
+directory with all essential information.
 ##### Pull request comment
 If pull request updates are activated a comment will be added to the Pull Request you provided as ```<pr_number>``` with a summary from the testrun. 
 * If all tests passed the latest commit will be marked as PASSED.
