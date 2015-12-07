@@ -16,7 +16,7 @@ When all tests are done one summarized report will be created.
 - [Example](#example)
 - [Usage](#usage)
 - [Options](#options)
-- [Results](#Results)
+- [Results](#results)
 - [License](#license)
 
 ---
