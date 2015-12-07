@@ -38,32 +38,36 @@ $ mocha-espresso ./test/foo/bar -r 2 -d -m "-g @smoke"
 ## Usage ##
 ##### Using command line options
 
-Pull request updates in git disabled
+Pull request comment updates in git disabled:
 ```shell
 $ mocha-espresso <mocha_test_folder> [-r <rerun_times>] [-m "<mocha_args ...>"]
 ```
 
-Pull request updates in git enabled
+Pull request comment updates in git enabled:
 ```shell
 $ mocha-espresso <mocha_test_folder> -P <pr_number> [-m "<mocha_args ...>"]
 ```
 
-By default Mocha-Espresso will also run all mocha testcases in the specified ```<mocha_test_folder>```. This is configurable 
+By default mocha-espresso will run all mocha testcases in the specified ```<mocha_test_folder>```. This is configurable 
 with the option ```-m <mocha_args ...>```, which will get forwarded to mocha.
 
-All reports will be generated to ```./test/reports/``` by default. This is only configurable when using the mocha-espresso config file. **NOTE**: For every run, all *.json and *.xml files will be deleted in this directory. *(Path relative to current directory)*
+All reports will be generated to ```./test/reports/``` by default. This is only configurable when using the mocha-espresso config file. **NOTE**: For every run, all \*.json and \*.xml files will be deleted in this directory. *(Path relative to current directory)*
 
 ##### Using config file
-All options will be parsed from ```./config/mocha-espresso.json```, more information in config file section.
 
-Pull request updates in git disabled
+Pull request comment updates in git disabled:
 ```shell
 $ mocha-espresso
 ```
-Pull request updates in git enabled
+Pull request comment updates in git enabled:
 ```shell
 $ mocha-espresso -P <prnumber>
 ```
+
+For convenience all options can be added to a config file. 
+If config file is used all the options from the command line will be ignored, except for ```-P```and ```--prnumber``` which activates pull request comment updates.
+
+All options will be parsed from ```./config/mocha-espresso.json```, more information in config file section.
 
 ---
 
@@ -96,7 +100,6 @@ When using the option ```-P``` or ```--prnumber```, github updates will be enabl
 For information on how to generate a access token for git:
 [Generate personal github token](https://help.github.com/articles/creating-an-access-token-for-command-line-use/)
 
-For convenience all options can be added to a config file. **NOTE**: If config file is used all the options from the command line will be ignored, except for ```-P```and ```--prnumber``` which activates pull request updates.
 ## Config file ##
 For using the config file create  ```./config/mocha-espresso.json``` and set the parameters according to the following example:
 
