@@ -1,4 +1,4 @@
-# mocha-espresso 
+# Mocha-espresso
 
 Mocha-espresso is a tool that allows you to execute mocha test suites in parallel. The main purpose of this module is to increase execution speed of mocha test suites.
 
