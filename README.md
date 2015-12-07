@@ -1,12 +1,12 @@
 # Mocha-espresso
 
-Mocha-espresso is a tool that allows you to execute mocha test suites in parallel. The main purpose of this module is to increase execution speed of mocha test suites.
+Mocha-espresso is a cli tool that allows you to execute mocha test suites in parallel. The main purpose of this module is to increase execution speed of mocha test suites.
 
 ## How does it work?
 
-Mocha-espresso will execute all mocha testcases existing in a directory and its subfolders in a asynchronous way. Each .js file will execute in its
-own thread while the main thread will keep track of the reports and updating the PR on github.
-When all tests are done one summarized report will be created.
+Mocha-espresso will execute all mocha test cases existing in a directory and its subfolders in a asynchronous way. Each *.js file will execute in its
+own thread while the main thread will keep track of the reports.
+When all tests are done one summarized report will be created, and if configured to do so, comment and commit status will be added to a PR on github.
 
 ---
 
@@ -51,10 +51,10 @@ $ mocha-espresso <mocha_test_folder> -P <pr_number> [-m "<mocha_args ...>"]
 By default Mocha-Espresso will also run all mocha testcases in the specified ```<mocha_test_folder>```. This is configurable 
 with the option ```-m <mocha_args ...>```, which will get forwarded to mocha.
 
-All reports will be generated to ```./test/reports/``` by default. This is only configurable when using the mocha-espresso config file.
+All reports will be generated to ```./test/reports/``` by default. This is only configurable when using the mocha-espresso config file. **NOTE**: For every run, all *.json and *.xml files will be deleted in this directory. *(Path relative to current directory)*
 
 ##### Using config file
-All options will be parsed from ```./config/mocha-espresso.json```, more information on config file section.
+All options will be parsed from ```./config/mocha-espresso.json```, more information in config file section.
 
 Pull request updates in git disabled
 ```shell
@@ -114,8 +114,8 @@ For using the config file create  ```./config/mocha-espresso.json``` and set the
 }
 ```
 * **mocha_arguments**: Whatever mocha arguments you would like to pass on to the test.
-* **test_directory**: Directory where the mocha tests are located.
-* **report_directory**:  Directory where the reports from the mocha tests will be generated. NOTE: Use with caution, for every run all *.json and *.xml files will be deleted in this directory.
+* **test_directory**: Directory where the mocha tests are located. *(Path relative to current directory)*
+* **report_directory**:  Directory where the reports from the mocha tests will be generated. **NOTE**: Use with caution, for every run, all *.json and *.xml files will be deleted in this directory. *(Path relative to current directory)*
 * **rerun_times**: Amount of times a test will rerun, if the test is failing.
 * **debug**: (default: FALSE) 
    * TRUE, the current testcase will be logged to the console.
@@ -132,8 +132,8 @@ If you are initiating mocha-espresso manually when running the test suites it's 
 ## Results ##
 After running this module a final report **mocha_report_final.json** will by default be created under the ```./test/reports```
 directory with all essential information.
-##### Pull request comment
-If pull request updates are activated a comment will be added to the Pull Request you provided as ```<pr_number>``` with a summary from the testrun. 
+##### Pull request comment and commit status
+If pull request updates are activated a comment will be added to the Pull Request, provided as ```<pr_number>``` with a summary from the testrun. 
 * If all tests passed the latest commit will be marked as PASSED.
 * If any test fails the latest commit will be marked as FAILED.
 
