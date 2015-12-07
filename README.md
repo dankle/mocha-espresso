@@ -23,42 +23,45 @@ When all tests are done one summarized report will be created.
 
 ## Installation ##
 ```shell
-npm install mocha-espresso
+npm install mocha-espresso -g
+```
+
+---
+## Example ##
+```shell
+mocha-espresso ./test/foo/bar -r 2 -d -m "-g @smoke"
 ```
 
 ---
 
 ## Usage ##
+##### Using command line options
 
-Git updates disabled
+Pull request updates in git disabled
 ```shell
-    mocha-espresso <mocha_test_folder> [-r <rerun_times>] [-m "<mocha_args ...>"]
+mocha-espresso <mocha_test_folder> [-r <rerun_times>] [-m "<mocha_args ...>"]
 ```
-Git updates enabled
+Pull request updates in git enabled
 ```shell
-    mocha-espresso <mocha_test_folder> -P <pr_number> [-m "<mocha_args ...>"]
-```
-
-Where <mocha_test_folder> is your base directory for your tests, 
-Mocha-Espresso will search all subfolders for mocha testcases and run them.
-
-By default Mocha-Espresso will search for all mocha testcases in the specified directory, this is configurable 
-with the option 'mocha_args' which just passes the arguments on to mocha and is therefore compatible with
-any mocha arguments.
-
-### Git Pull Request updates ###
-
-When using the option **-P** github updates will be enabled. For this to work you need to set the following options:
-
-```shell
-  -h, --host <host>                Host for github comment
-  -repo, --repo <repo>             Repo for github comment
-  -u, --user <user>                User for github comment
-  -t, --token <token>              Token for github comment
+mocha-espresso <mocha_test_folder> -P <pr_number> [-m "<mocha_args ...>"]
 ```
 
-For information on how to generate a access token for git:
-[Generate personal github token](https://help.github.com/articles/creating-an-access-token-for-command-line-use/)
+By default Mocha-Espresso will also run all mocha testcases in the specified ```<mocha_test_folder>```. This is configurable 
+with the option ```-m <mocha_args ...>```, which will get forwarded to mocha.
+
+All reports will be generated to ```./test/reports/``` by default. This is only configurable when using the mocha-espresso config file.
+
+##### Using config file
+All options will be parsed from ```./config/mocha-espresso.json```, more information on config file [here](#configfile).
+
+Pull request updates in git disabled
+```shell
+mocha-espresso
+```
+Pull request updates in git enabled
+```shell
+mocha-espresso -P <prnumber>
+```
 
 ---
 
@@ -77,29 +80,60 @@ For information on how to generate a access token for git:
   -m, --mocha <"mocha_args ...">   Mocha args
 ```
 
-For convenience these options can be added to a config file to save the settings:
+### Git Pull Request updates ###
 
-Create file /config/mocha-espresso.json and set parameters according to example:
+When using the option ```-P``` or ```--prnumber```, github updates will be enabled. For this to work you need to set the following options:
+
+```shell
+  -h, --host <host>                Host for github comment
+  -repo, --repo <repo>             Repo for github comment
+  -u, --user <user>                User for github comment
+  -t, --token <token>              Token for github comment
+```
+
+For information on how to generate a access token for git:
+[Generate personal github token](https://help.github.com/articles/creating-an-access-token-for-command-line-use/)
+
+For convenience all options can be added to a config file. **NOTE**: If config file is used all the options from the command line will be ignored, except for ```-P```and ```--prnumber``` which activates pull request updates.
+## Config file ##
+For using the config file create  ```./config/mocha-espresso.json``` and set the parameters according to the following example:
 
 ```
 {
   "mocha_arguments": "-g @smoke",
   "test_directory": "./test/inspection_rules",
+  "report_directory": "./test/bananas",
   "rerun_times": "2",
   "git_user": "test",
   "git_token": "###################################",
   "git_host": "github.com",
   "git_repo": "my-project",
-  "debug": "false"
+  "debug": false
 }
 ```
+* **mocha_arguments**: Whatever mocha arguments you would like to pass on to the test.
+* **test_directory**: Directory where the mocha tests are located.
+* **report_directory**:  Directory where the reports from the mocha tests will be generated. NOTE: Use with caution, for every run all *.json and *.xml files will be deleted in this directory.
+* **rerun_times**: Amount of times a test will rerun, if the test is failing.
+* **debug**: (default: FALSE) 
+   * TRUE, the current testcase will be logged to the console.
+   * FALSE, the progress will be presented as with a progressbar.
+
+### Recommendations ###
+##### Jenkins
+When using mocha-espresso with a Jenkins job or in any other automated CI environment, the easiest way is to use the command line options. 
+##### Manual initiation
+If you are initiating mocha-espresso manually when running the test suites it's more convenient to use the config file ```./config/mocha-espresso.json```.
 
 ---
 
 ## Results ##
 After running this module a final report **mocha_report_final.json** will be created under the **[reports](./test/reports)**
-directory with all essential information. Also a comment will be added to the Pull Request you provided with a summary from the testrun, if all tests passed the latest commit will be marked as PASS.
-If any test fails the latest commit will be marked as FAIL.
+directory with all essential information. 
+##### Pull request comment
+If pull request updates are activated a comment will be added to the Pull Request you provided as ```<pr_number>``` with a summary from the testrun. 
+* If all tests passed the latest commit will be marked as PASSED.
+* If any test fails the latest commit will be marked as FAILED.
 
 ---
 

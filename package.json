@@ -1,11 +1,12 @@
 {
   "name": "mocha-espresso",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Run mocha tests in parallel",
   "repository": {
     "type": "git",
     "url": "https://github.com/dankle/mocha-espresso"
   },
+  "author": "Daniel Kleveros",
   "license": "MIT",
   "bin": {
     "mocha-espresso": "./bin/mocha-espresso.bin.js"
