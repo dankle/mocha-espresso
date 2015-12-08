@@ -16,6 +16,7 @@ When all tests are done one summarized report will be created, and if configured
 - [Example](#example)
 - [Usage](#usage)
 - [Options](#options)
+- [Jenkins](#jenkins)
 - [Results](#results)
 - [License](#license)
 
@@ -129,6 +130,29 @@ For using the config file create  ```./config/mocha-espresso.json``` and set the
 When using mocha-espresso with a Jenkins job or in any other automated CI environment, the easiest way is to use the command line options. 
 ##### Manual initiation
 If you are initiating mocha-espresso manually when running the test suites it's more convenient to use the config file ```./config/mocha-espresso.json```.
+
+---
+## Jenkins
+##### Setup a jenkins job
+It's easy to add mocha-espresso to your existing jenkins job. Just do the following steps:
+
+1. First setup your module under test under **Source Code Management**, i.e. your git repository.
+2. Under **Build**, add the following to the **Execute Shell** *command* field:
+
+```shell
+export PATH=/usr/local/bin:$PATH
+node --version
+npm prune
+npm install
+npm install mocha-espresso -g
+set +e
+
+mocha-espresso ./test/pangaea/regression/ -r 2 -d -m "-g @smoke"
+```
+3. Under **Post-build Actions** add *build steps*:
+* **Publish JUnit test result report** - Test Report XMLs - ```test/reports/*.xml```
+* **Archive the artifacts** - Files to archive - ```test/reports/*````
+ 
 
 ---
 
