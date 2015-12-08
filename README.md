@@ -150,8 +150,8 @@ set +e
 mocha-espresso ./test/pangaea/regression/ -r 2 -d -m "-g @smoke"
 ```
 3. Under **Post-build Actions** add *build steps*:
-* **Publish JUnit test result report** - Test Report XMLs - ```test/reports/*.xml```
-* **Archive the artifacts** - Files to archive - ```test/reports/*````
+  * **Publish JUnit test result report** - Test Report XMLs - ```test/reports/*.xml```
+  * **Archive the artifacts** - Files to archive - ```test/reports/*````
  
 
 ---
