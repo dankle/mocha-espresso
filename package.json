@@ -1,6 +1,6 @@
 {
   "name": "mocha-espresso",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "Run mocha tests in parallel",
   "repository": {
     "type": "git",
@@ -22,7 +22,7 @@
     "mocha-espresso"
   ],
   "engines": {
-  "node": ">=0.10.21"
+    "node": ">=0.10.21"
   },
   "dependencies": {
     "commander": "2.9.0",
@@ -31,7 +31,7 @@
     "libxmljs": "0.16.0",
     "mkdirp": "0.5.1",
     "mocha": "2.3.3",
-    "mocha-multi": "0.7.2",
+    "mocha-multi": "^0.7.2",
     "path": "0.12.7",
     "progress": "1.1.8",
     "rekuire": "0.1.9",
