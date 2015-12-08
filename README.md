@@ -136,8 +136,8 @@ If you are initiating mocha-espresso manually when running the test suites it's 
 ##### Setup a jenkins job
 It's easy to add mocha-espresso to your existing jenkins job. Just do the following steps:
 
-1. First setup your module under test under **Source Code Management**, i.e. your git repository.
-2. Under **Build**, add the following to the **Execute Shell** *command* field:
+* First setup your module under test under **Source Code Management**, i.e. your git repository.
+* Under **Build**, add the following to the **Execute Shell** *command* field:
 
 ```shell
 export PATH=/usr/local/bin:$PATH
@@ -150,7 +150,7 @@ set +e
 mocha-espresso ./test/pangaea/regression/ -r 2 -d -m "-g @smoke"
 ```
 
-3. Under **Post-build Actions** add *build steps*:
+* Under **Post-build Actions** add *build steps*:
   * **Publish JUnit test result report** - Test Report XMLs - ```test/reports/*.xml```
   * **Archive the artifacts** - Files to archive - ```test/reports/*````
  
