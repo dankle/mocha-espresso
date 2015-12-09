@@ -25,7 +25,6 @@ When all tests are done one summarized report will be created, and if configured
 ## Installation ##
 
 ```shell
-$ npm install mocha-multi
 $ npm install mocha-espresso -g
 ```
 
