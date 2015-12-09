@@ -11,6 +11,9 @@
   "bin": {
     "mocha-espresso": "./bin/mocha-espresso.bin.js"
   },
+  "scripts": {
+    "postinstall": "alias mocha-espresso='node $(npm bin)/mocha-espresso'"
+  },
   "keywords": [
     "testing",
     "mocha",
