@@ -1,6 +1,6 @@
 {
   "name": "mocha-espresso",
-  "version": "0.0.16",
+  "version": "0.0.17",
   "description": "Run mocha tests in parallel",
   "repository": {
     "type": "git",
@@ -10,9 +10,6 @@
   "license": "MIT",
   "bin": {
     "mocha-espresso": "./bin/mocha-espresso.bin.js"
-  },
-  "scripts": {
-    "install": "export PATH='$PATH:./node_modules/.bin'"
   },
   "keywords": [
     "testing",
