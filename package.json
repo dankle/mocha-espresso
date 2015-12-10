@@ -1,6 +1,6 @@
 {
   "name": "mocha-espresso",
-  "version": "0.0.18",
+  "version": "0.0.19",
   "description": "Run mocha tests in parallel",
   "repository": {
     "type": "git",
@@ -10,9 +10,6 @@
   "license": "MIT",
   "bin": {
     "mocha-espresso": "./bin/mocha-espresso.bin.js"
-  },
-  "scripts": {
-    "postinstall": "alias mocha-espresso='node $(npm bin)/mocha-espresso'"
   },
   "keywords": [
     "testing",
@@ -39,10 +36,12 @@
   },
   "devDependencies": {
     "grunt": "0.4.5",
+    "grunt-cli": "^0.1.13",
     "grunt-concurrent": "2.0.3",
     "grunt-contrib-jshint": "0.11.3",
     "grunt-env": "0.4.4",
     "grunt-jscs": "2.3.0",
-    "grunt-mocha-cli": "2.0.0"
+    "grunt-mocha-cli": "2.0.0",
+    "grunt-shell": "1.1.2"
   }
 }
