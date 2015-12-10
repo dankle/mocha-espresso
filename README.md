@@ -25,13 +25,20 @@ When all tests are done one summarized report will be created, and if configured
 ## Installation ##
 
 ```shell
-$ npm install mocha-espresso -g
+$ npm install mocha-espresso
+$ npm install mocha-multi
+```
+Add the following to your ```package.json```:
+```shell
+  "scripts": {
+    "mocha-espresso": "./node_modules/.bin/mocha-espresso"
+  },
 ```
 
 ---
 ## Example ##
 ```shell
-$ mocha-espresso ./test/foo/bar -r 2 -d -m "-g @smoke"
+$ npm run mocha-espresso -- ./test/foo/bar -r 2 -d -m "-g @smoke"
 ```
 
 ---
@@ -41,12 +48,12 @@ $ mocha-espresso ./test/foo/bar -r 2 -d -m "-g @smoke"
 
 Pull request comment updates in git disabled:
 ```shell
-$ mocha-espresso <mocha_test_folder> [-r <rerun_times>] [-m "<mocha_args ...>"]
+$ npm run mocha-espresso -- <mocha_test_folder> [-r <rerun_times>] [-m "<mocha_args ...>"]
 ```
 
 Pull request comment updates in git enabled:
 ```shell
-$ mocha-espresso <mocha_test_folder> -P <pr_number> [-m "<mocha_args ...>"]
+$ npm run mocha-espresso -- <mocha_test_folder> -P <pr_number> [-m "<mocha_args ...>"]
 ```
 
 By default mocha-espresso will run all mocha testcases in the specified ```<mocha_test_folder>```. This is configurable 
@@ -58,11 +65,11 @@ All reports will be generated to ```./test/reports/``` by default. This is only 
 
 Pull request comment updates in git disabled:
 ```shell
-$ mocha-espresso
+$ npm run mocha-espresso
 ```
 Pull request comment updates in git enabled:
 ```shell
-$ mocha-espresso -P <prnumber>
+$ npm run mocha-espresso -- -P <prnumber>
 ```
 
 For convenience all options can be added to a config file. 
@@ -147,7 +154,7 @@ npm install
 npm install mocha-espresso -g
 set +e
 
-mocha-espresso ./test/pangaea/regression/ -r 2 -d -m "-g @smoke"
+npm run mocha-espresso -- ./test/pangaea/regression/ -r 2 -d -m "-g @smoke"
 ```
 
 * Under **Post-build Actions** add *build steps*:
