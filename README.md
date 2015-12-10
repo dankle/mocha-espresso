@@ -151,7 +151,6 @@ export PATH=/usr/local/bin:$PATH
 node --version
 npm prune
 npm install
-npm install mocha-espresso -g
 set +e
 
 npm run mocha-espresso -- ./test/pangaea/regression/ -r 2 -d -m "-g @smoke"
