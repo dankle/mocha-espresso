@@ -165,7 +165,13 @@ npm run mocha-espresso -- ./test/pangaea/regression/ -r 2 -d -m "-g @smoke"
 
 ## Results ##
 After running this module a final report **mocha_report_final.json** will by default be created under the ```./test/reports```
-directory with all essential information.
+directory with all essential information along with the following reports:
+* **Date_Time_Dir-Filename.json|xml** (one for each file containing mocha tests e.g. 2015-12-10_013235_test-test_file.json and 2015-12-10_013235_test-test_file.xml)
+* **rerun-1_Date_Time_Dir-Filename.xml** (one for each rerun e.g. rerun-1_2015-12-10_013235_test-test_file.json)
+
+For each rerun, the *.json and *.xml reports will be updated if a previously failed test is changed to passed. This will reflect an accurate test result if e.g. a Jenkins job uses the mocha-espresso xml reports to publish a unit result report.
+
+
 ##### Pull request comment and commit status
 If pull request updates are activated a comment will be added to the Pull Request, provided as ```<pr_number>``` with a summary from the testrun. 
 * If all tests passed the latest commit will be marked as PASSED.
