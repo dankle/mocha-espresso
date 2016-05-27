@@ -1,6 +1,6 @@
 # Mocha-espresso
 
-Mocha-espresso is a cli tool that allows you to execute mocha test suites in parallel. The main purpose of this module is to increase execution speed of mocha test suites.
+Mocha-espresso is a test runner that allows you to execute mocha test suites in parallel. The main purpose of this module is to increase execution speed of mocha test suites.
 
 
 ## How does it work?
@@ -9,7 +9,7 @@ Mocha-espresso will execute all mocha test cases existing in a directory and its
 own thread while the main thread will keep track of the reports.
 When all tests are done one summarized report will be created, and if configured to do so, comment and commit status will be added to a PR on github.
 
-This tool will also generate reports in both json and xml, compatible with [xunit](https://wiki.jenkins-ci.org/display/JENKINS/TestComplete+xUnit+Plugin). 
+This test runner will also generate reports in both json and xml, compatible with [xunit](https://wiki.jenkins-ci.org/display/JENKINS/TestComplete+xUnit+Plugin). 
 
 ---
 
