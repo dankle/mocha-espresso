@@ -1,9 +1,9 @@
 var assert = require("assert"); // node.js core module
 
-describe('Array', function(){
-  describe('#indexOf()', function(){
-    it('should return -1 when the value is not present', function(){
-      assert.equal(-1, [1,2,3].indexOf(4));
+describe('mocha-espresso', function(){
+  describe('Test', function(){
+    it('Apply associate discount to a new associate customer [C1264]', function(){
+      assert(false);
     })
   })
 });
